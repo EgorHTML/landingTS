@@ -22,3 +22,18 @@
 .none{
     display: none;
 }
+.nav__menu{
+    border: 1px solid #000;
+    display: flex;
+    justify-content: space-around;
+}
+.header{
+    padding: 0 5%;
+   margin: 20px 0 10% 0;
+}
+.header li{
+    cursor: pointer;
+}
+.MainSectionNone{
+    display: none;
+}

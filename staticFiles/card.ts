@@ -1,10 +1,11 @@
+import { MainSection } from "./navSection.js"
 import {Ui} from "./ui.js"
 
 type StateCard = {
     opened:boolean
 }
 
-export class Card{
+export class Card extends Ui{
     readonly card:HTMLElement
     private state:StateCard = {opened:false}
     private readonly minWidth:number = 35
@@ -13,6 +14,7 @@ export class Card{
     private button:HTMLElement
 
     constructor(card:HTMLElement){
+        super()
         this.card = card
         this.button = this.card.querySelector(".close")
     }
@@ -27,10 +29,15 @@ export class Card{
 
     public closeCard(){
         if(this.state["opened"]===true){
+            MainSection.closeAboutProject()
             this.currentSize = this.minWidth
             this.setupState()
             this.generateUiForCloseCard()
           }
+    }
+
+    public getState():StateCard{
+        return this.state
     }
 
     private generateUiForOpenCard(){
@@ -48,5 +55,5 @@ export class Card{
     private setupState(){
         if(this.currentSize===this.maxWidth) this.state["opened"] = true
         else this.state["opened"] = false 
-    }
+    }  
 }

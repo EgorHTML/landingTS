@@ -14,5 +14,12 @@ export class Ui {
             }
         });
     }
+    static setAllCardsToBack() {
+        cards.forEach((card) => {
+            if (card.getState().opened === true) {
+                card.closeCard();
+            }
+        });
+    }
 }
 //# sourceMappingURL=ui.js.map

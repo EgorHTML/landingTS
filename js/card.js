@@ -1,6 +1,8 @@
+import { MainSection } from "./navSection.js";
 import { Ui } from "./ui.js";
-export class Card {
+export class Card extends Ui {
     constructor(card) {
+        super();
         this.state = { opened: false };
         this.minWidth = 35;
         this.maxWidth = 90;
@@ -17,10 +19,14 @@ export class Card {
     }
     closeCard() {
         if (this.state["opened"] === true) {
+            MainSection.closeAboutProject();
             this.currentSize = this.minWidth;
             this.setupState();
             this.generateUiForCloseCard();
         }
+    }
+    getState() {
+        return this.state;
     }
     generateUiForOpenCard() {
         Ui.addHiddenCards(this.card);

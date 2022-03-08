@@ -1,6 +1,8 @@
 import {cards} from "./app.js"
+
+
 export class Ui{
-    static addHiddenCards(card){
+    protected static addHiddenCards(card){
         cards.forEach((element)=>{
             if(element.card.id!=card.id){
                 element.card.classList.add("none")
@@ -8,11 +10,20 @@ export class Ui{
         })
     }
 
-    static removeHiddenCards(card){
+    protected static removeHiddenCards(card){
         cards.forEach((element)=>{
             if(element.card.id!=card.id){
                 element.card.classList.remove("none")
             }
         })
     }
+
+    protected static setAllCardsToBack(){
+        cards.forEach((card)=>{
+            if(card.getState().opened===true){
+                card.closeCard()
+            }
+        })
+    }
 }
+
