@@ -1,0 +1,11 @@
+{
+    "compilerOptions": {
+        "target": "ES6",
+        "sourceMap": true,
+    "watch": true,
+    "outDir": "js"
+    },
+    
+    "files": ["./staticFiles/app.ts","./staticFiles/card.ts","./staticFiles/ui.ts"]
+    
+}
