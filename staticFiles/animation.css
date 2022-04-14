@@ -1,0 +1,71 @@
+
+  @keyframes openCard {
+    from{
+      width: 35%;
+      height: 190px;
+    }to{
+      width: 80%;
+      height: 450px;
+    }
+  }
+
+  @keyframes closeCard {
+    from{
+        width: 45%;
+        height: 350px;
+      }
+    to{
+      width: 35%;
+      height: 190px;
+    }
+  }
+
+  @keyframes color-change-4x {
+    0% {
+      background: #daf2f2;
+    }
+    25%{
+      background: #f4b7ad;
+    }
+    50%{
+      background: #bcf7bc;
+    }
+    75%{
+      background: #f4b7ad;
+    }
+    100% {
+      background: #daf2f2;
+    }
+  }
+
+  .scale-up-center {
+    animation: scale-up-center 0.8s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+  }
+  @-webkit-keyframes scale-up-center {
+    0% {
+      -webkit-transform: scale(0.5);
+              transform: scale(0.5);
+    }
+    100% {
+      -webkit-transform: scale(1);
+              transform: scale(1);
+    }
+  }
+  @keyframes scale-up-center {
+    0% {
+      -webkit-transform: scale(0.5);
+              transform: scale(0.5);
+    }
+    100% {
+      -webkit-transform: scale(1);
+              transform: scale(1);
+    }
+  }
+
+  @keyframes fromZeroOpacityToFull{
+    from{
+      opacity: 0;
+    }to{
+      opacity: 1;
+    }
+  }

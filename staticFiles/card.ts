@@ -1,4 +1,4 @@
-import { MainSection } from "./navSection.js"
+import { NavSection } from "./navSection.js"
 import {Ui} from "./ui.js"
 
 type StateCard = {
@@ -7,11 +7,14 @@ type StateCard = {
 
 export class Card extends Ui{
     readonly card:HTMLElement
+    private readonly button:HTMLElement
+
     private state:StateCard = {opened:false}
+
     private readonly minWidth:number = 35
     private readonly maxWidth:number = 90
     private currentSize = this.minWidth
-    private button:HTMLElement
+    
 
     constructor(card:HTMLElement){
         super()
@@ -29,7 +32,7 @@ export class Card extends Ui{
 
     public closeCard(){
         if(this.state["opened"]===true){
-            MainSection.closeAboutProject()
+            NavSection.closeAboutProject()
             this.currentSize = this.minWidth
             this.setupState()
             this.generateUiForCloseCard()
@@ -39,6 +42,7 @@ export class Card extends Ui{
     public getState():StateCard{
         return this.state
     }
+
 
     private generateUiForOpenCard(){
         Ui.addHiddenCards(this.card)

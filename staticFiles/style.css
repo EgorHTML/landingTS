@@ -1,3 +1,4 @@
+@import url("./animation.css");
 
 *{
     padding: 0;
@@ -5,35 +6,82 @@
     list-style: none;
 }
 
+.wrapper{
+    animation: color-change-4x 30s infinite ;
+    height: 100vh;
+}
+
 .main__block{
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    padding: 0 20%;
+    padding: 0 10%;
 }
 
 .card{
-    border: 1px solid #000;
+    
+    background: #fff;
     width: 35%;
     /* min-height */
     margin: 10px;
+    height: 190px;  
+    cursor: pointer; 
+    box-shadow: 0 0 5px 5px rgba(70, 63, 63, 0.2);
+    border-radius: 3px;
+    background: inherit;
+}
+
+.card:hover{
+    box-shadow: 0 0 2rem 2px rgba(7, 7, 7, 0.2);
 }
 
 .none{
     display: none;
 }
 .nav__menu{
-    border: 1px solid #000;
+    /* border: 3px solid rgb(88, 121, 244,0.5); */
+    background-color: rgba(223, 223, 223, 0.5);
+    box-shadow: 1px 1px 10px 1px;
+    border-radius: 20px;
+    padding: 10px;
     display: flex;
     justify-content: space-around;
+    font-size: 20px;
 }
 .header{
-    padding: 0 5%;
-   margin: 20px 0 10% 0;
+    padding: 20px 5%;
+   margin: 0 0 5% 0;
+   
 }
 .header li{
     cursor: pointer;
+    overflow: hidden;
+    position: relative;
 }
-.MainSectionNone{
+
+.list:nth-child(1) .title:hover + .line{
+    animation: fromZeroOpacityToFull 1s forwards ease-out;
+}
+.list:nth-child(2) .title:hover + .line{
+    animation: fromZeroOpacityToFull 1s forwards ease-out;
+}
+.list:nth-child(3) .title:hover + .line{
+    animation: fromZeroOpacityToFull 1s forwards ease-out;
+}
+
+.NavSectionNone{
     display: none;
+}
+.noneCard{
+    display: none;
+}
+
+.line{
+    opacity: 0;
+    position: absolute;
+    top: 90%;
+    left: 0;
+    width: 100px;
+    height: 2px;
+    background: linear-gradient(to right, #000 20%,30%,rgb(245, 68, 209));
 }

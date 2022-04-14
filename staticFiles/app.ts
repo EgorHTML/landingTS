@@ -1,5 +1,6 @@
 import {Card} from "./card.js"
-import {MainSection} from "./navSection.js"
+import {NavSection} from "./navSection.js"
+
 const nodeCards:NodeListOf<HTMLElement>= document.querySelectorAll(".card")
 
 function getobjectCards():Card[]{
@@ -19,24 +20,28 @@ for(let i = 0;i<nodeCards.length;i++){
     closeButtons[i].addEventListener("click",(event)=>clickOnCloseButton(event,cards[i]))
 }
 
-export const project = document.querySelector("li")
+const project = document.querySelector("li")
 
 project.addEventListener("click",()=>{
-    MainSection.getBackHome()
+    NavSection.getBackHome()
     clickOnCard(cards[4])
 })
 
 function clickOnCard(card:Card){
-    if(card.card.id==="4") MainSection.openAboutProject()  
+    if(card.card.id==="4") NavSection.openAboutProject()  
      card.openCard()
 }
 
 function clickOnCloseButton(event:Event,card: Card){
-    if(card.card.id==="4") MainSection.closeAboutProject()
+    if(card.card.id==="4") NavSection.closeAboutProject()
     event.stopPropagation()
     card.closeCard()
 }
 
 const home = document.querySelectorAll("li")[1]
 
-home.addEventListener("click",()=>MainSection.getBackHome())
+home.addEventListener("click",()=>NavSection.getBackHome())
+
+const installSection = document.querySelectorAll("li")[2]
+
+installSection.addEventListener("click",NavSection.openInstallCard)

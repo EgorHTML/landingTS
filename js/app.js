@@ -1,5 +1,5 @@
 import { Card } from "./card.js";
-import { MainSection } from "./navSection.js";
+import { NavSection } from "./navSection.js";
 const nodeCards = document.querySelectorAll(".card");
 function getobjectCards() {
     const cards = [];
@@ -14,22 +14,24 @@ for (let i = 0; i < nodeCards.length; i++) {
     cards[i].card.addEventListener("click", () => clickOnCard(cards[i]));
     closeButtons[i].addEventListener("click", (event) => clickOnCloseButton(event, cards[i]));
 }
-export const project = document.querySelector("li");
+const project = document.querySelector("li");
 project.addEventListener("click", () => {
-    MainSection.getBackHome();
+    NavSection.getBackHome();
     clickOnCard(cards[4]);
 });
 function clickOnCard(card) {
     if (card.card.id === "4")
-        MainSection.openAboutProject();
+        NavSection.openAboutProject();
     card.openCard();
 }
 function clickOnCloseButton(event, card) {
     if (card.card.id === "4")
-        MainSection.closeAboutProject();
+        NavSection.closeAboutProject();
     event.stopPropagation();
     card.closeCard();
 }
 const home = document.querySelectorAll("li")[1];
-home.addEventListener("click", () => MainSection.getBackHome());
+home.addEventListener("click", () => NavSection.getBackHome());
+const installSection = document.querySelectorAll("li")[2];
+installSection.addEventListener("click", NavSection.openInstallCard);
 //# sourceMappingURL=app.js.map

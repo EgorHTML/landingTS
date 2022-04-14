@@ -1,4 +1,4 @@
-import { MainSection } from "./navSection.js";
+import { NavSection } from "./navSection.js";
 import { Ui } from "./ui.js";
 export class Card extends Ui {
     constructor(card) {
@@ -19,7 +19,7 @@ export class Card extends Ui {
     }
     closeCard() {
         if (this.state["opened"] === true) {
-            MainSection.closeAboutProject();
+            NavSection.closeAboutProject();
             this.currentSize = this.minWidth;
             this.setupState();
             this.generateUiForCloseCard();
