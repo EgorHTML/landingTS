@@ -1,14 +1,19 @@
 @import url("./animation.css");
-
+@font-face {
+    font-family: userFont;
+    src: url('./serifgothicitcbybt_bold.ttf') format("truetype");
+}
 *{
     padding: 0;
     margin: 0;
     list-style: none;
+    
 }
 
 .wrapper{
     animation: color-change-4x 30s infinite ;
     height: 100vh;
+    
 }
 
 .main__block{
@@ -19,8 +24,7 @@
 }
 
 .card{
-    
-    background: #fff;
+   
     width: 35%;
     /* min-height */
     margin: 10px;
@@ -29,17 +33,28 @@
     box-shadow: 0 0 5px 5px rgba(70, 63, 63, 0.2);
     border-radius: 3px;
     background: inherit;
+    transition: all 0.3s;
+
+}
+
+.card h2{
+    font-family: userFont;
+    text-align: center;
+    margin-top: 6%;
+    letter-spacing: 4px;
 }
 
 .card:hover{
     box-shadow: 0 0 2rem 2px rgba(7, 7, 7, 0.2);
+    margin-top:5px;
+    
 }
 
 .none{
     display: none;
 }
 .nav__menu{
-    /* border: 3px solid rgb(88, 121, 244,0.5); */
+    font-family: userFont;
     background-color: rgba(223, 223, 223, 0.5);
     box-shadow: 1px 1px 10px 1px;
     border-radius: 20px;
@@ -47,6 +62,7 @@
     display: flex;
     justify-content: space-around;
     font-size: 20px;
+    
 }
 .header{
     padding: 20px 5%;
@@ -60,13 +76,13 @@
 }
 
 .list:nth-child(1) .title:hover + .line{
-    animation: fromZeroOpacityToFull 1s forwards ease-out;
+    animation: fromZeroOpacityToFull 0.6s forwards ease-out;
 }
 .list:nth-child(2) .title:hover + .line{
-    animation: fromZeroOpacityToFull 1s forwards ease-out;
+    animation: fromZeroOpacityToFull 0.6s forwards ease-out;
 }
 .list:nth-child(3) .title:hover + .line{
-    animation: fromZeroOpacityToFull 1s forwards ease-out;
+    animation: fromZeroOpacityToFull 0.6s forwards ease-out;
 }
 
 .NavSectionNone{
@@ -81,7 +97,33 @@
     position: absolute;
     top: 90%;
     left: 0;
-    width: 100px;
+    width: 120px;
     height: 2px;
     background: linear-gradient(to right, #000 20%,30%,rgb(245, 68, 209));
+}
+
+.close{
+    position: absolute;
+    bottom: 1%;
+    left: 38.5%;
+    background: none;
+    width: 250px;
+    height: 7%;
+    border-radius: 50px;
+    font-size: 20px;
+    letter-spacing: 5px;
+    border: 3px solid rgba(0,0,0,0.1);
+}
+.close:hover{
+    background-color: hsl(0, 0%, 40%,0.2);
+    cursor: pointer;
+    color: #fff;
+}
+
+.logo{
+    font-family: userFont;
+    font-size: 40px;
+    position: fixed;
+    bottom: 5%;
+    left: 2%;
 }

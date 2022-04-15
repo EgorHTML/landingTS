@@ -8,6 +8,8 @@ type StateCard = {
 export class Card extends Ui{
     readonly card:HTMLElement
     private readonly button:HTMLElement
+    private description:HTMLElement
+    private title:HTMLElement
 
     private state:StateCard = {opened:false}
 
@@ -15,11 +17,12 @@ export class Card extends Ui{
     private readonly maxWidth:number = 90
     private currentSize = this.minWidth
     
-
     constructor(card:HTMLElement){
         super()
         this.card = card
         this.button = this.card.querySelector(".close")
+        this.description = this.card.querySelector(".description")
+        this.title = this.card.querySelector("h2")
     }
     
     public openCard(){
@@ -43,21 +46,32 @@ export class Card extends Ui{
         return this.state
     }
 
-
     private generateUiForOpenCard(){
         Ui.addHiddenCards(this.card)
         this.card.style.width = `${this.maxWidth}%`
-        this.button.classList.remove("none")
+        this.toggleNoneStyle([this.button,this.description,this.title])
+     
     }
 
     private generateUiForCloseCard(){
         Ui.removeHiddenCards(this.card)
         this.card.style.width = `${this.minWidth}%`
-        this.button.classList.add("none")
+        this.toggleNoneStyle([this.button,this.description,this.title])
+       
     }
     
     private setupState(){
         if(this.currentSize===this.maxWidth) this.state["opened"] = true
         else this.state["opened"] = false 
     }  
+
+    private toggleNoneStyle(elements:HTMLElement|HTMLElement[]){
+        if(elements instanceof HTMLElement){
+            elements.classList.toggle("none")
+        }else if(Array.isArray(elements)){
+            elements.forEach((element)=>{
+                element.classList.toggle("none")
+            })
+        }
+    }
 }

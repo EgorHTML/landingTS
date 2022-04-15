@@ -22,9 +22,15 @@ const server = http.createServer((req,res)=>{
             res.writeHead(200,{'Content-Type': 'text/javascript'})
             res.end(data)
         })
-    }else if(req.url.includes("favicon.ico")){
+    }else if(req.url.includes("favicon.ico") ){
         res.writeHead(200,{"application":"octet-stream"})
         res.end()
+    }else if(req.url.includes("ttf")){
+        fs.readFile(`./staticFiles/${req.url}`,(err,data)=>{
+            if(err)console.log(err.message);
+            res.writeHead(200,{"application":"octet-stream"})
+            res.end(data)
+        })
     }
 })
 const PORT = 8080

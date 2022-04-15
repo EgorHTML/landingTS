@@ -4,8 +4,9 @@
       width: 35%;
       height: 190px;
     }to{
+      cursor:default;
       width: 80%;
-      height: 450px;
+      height: 70%;
     }
   }
 
@@ -25,13 +26,13 @@
       background: #daf2f2;
     }
     25%{
-      background: #f4b7ad;
+      background: #f6c2bb;
     }
     50%{
-      background: #bcf7bc;
+      background: #c6f5c6;
     }
     75%{
-      background: #f4b7ad;
+      background: #f6c2bb;
     }
     100% {
       background: #daf2f2;

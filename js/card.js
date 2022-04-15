@@ -9,6 +9,8 @@ export class Card extends Ui {
         this.currentSize = this.minWidth;
         this.card = card;
         this.button = this.card.querySelector(".close");
+        this.description = this.card.querySelector(".description");
+        this.title = this.card.querySelector("h2");
     }
     openCard() {
         if (this.state["opened"] === false) {
@@ -31,18 +33,28 @@ export class Card extends Ui {
     generateUiForOpenCard() {
         Ui.addHiddenCards(this.card);
         this.card.style.width = `${this.maxWidth}%`;
-        this.button.classList.remove("none");
+        this.toggleNoneStyle([this.button, this.description, this.title]);
     }
     generateUiForCloseCard() {
         Ui.removeHiddenCards(this.card);
         this.card.style.width = `${this.minWidth}%`;
-        this.button.classList.add("none");
+        this.toggleNoneStyle([this.button, this.description, this.title]);
     }
     setupState() {
         if (this.currentSize === this.maxWidth)
             this.state["opened"] = true;
         else
             this.state["opened"] = false;
+    }
+    toggleNoneStyle(elements) {
+        if (elements instanceof HTMLElement) {
+            elements.classList.toggle("none");
+        }
+        else if (Array.isArray(elements)) {
+            elements.forEach((element) => {
+                element.classList.toggle("none");
+            });
+        }
     }
 }
 //# sourceMappingURL=card.js.map
