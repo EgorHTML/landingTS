@@ -6,6 +6,6 @@
     "outDir": "js"
     },
     
-    "files": ["./staticFiles/app.ts","./staticFiles/card.ts","./staticFiles/ui.ts","./staticFiles/navSection.ts"]
+    "files": ["./staticFiles/tsFiles/app.ts","./staticFiles/tsFiles/card.ts","./staticFiles/tsFiles/ui.ts","./staticFiles/tsFiles/navSection.ts"]
     
 }

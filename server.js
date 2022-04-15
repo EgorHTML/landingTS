@@ -1,6 +1,6 @@
 const http = require("http")
 const fs = require("fs")
-
+const path = require("path")
 
 const server = http.createServer((req,res)=>{
     if(req.url ==="/"){
@@ -25,7 +25,7 @@ const server = http.createServer((req,res)=>{
     }else if(req.url.includes("favicon.ico") ){
         res.writeHead(200,{"application":"octet-stream"})
         res.end()
-    }else if(req.url.includes("ttf")){
+    }else if(path.extname(req.url)===".ttf"){
         fs.readFile(`./staticFiles/${req.url}`,(err,data)=>{
             if(err)console.log(err.message);
             res.writeHead(200,{"application":"octet-stream"})

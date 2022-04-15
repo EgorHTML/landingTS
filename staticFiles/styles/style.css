@@ -1,7 +1,7 @@
 @import url("./animation.css");
 @font-face {
     font-family: userFont;
-    src: url('./serifgothicitcbybt_bold.ttf') format("truetype");
+    src: url('../fonts/serifgothicitcbybt_bold.ttf') format("truetype");
 }
 *{
     padding: 0;
