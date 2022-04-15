@@ -49,14 +49,14 @@ export class Card extends Ui{
     private generateUiForOpenCard(){
         Ui.addHiddenCards(this.card)
         this.card.style.width = `${this.maxWidth}%`
-        this.toggleNoneStyle([this.button,this.description,this.title])
+        Ui.toggleNoneStyle([this.button,this.description,this.title])
      
     }
 
     private generateUiForCloseCard(){
         Ui.removeHiddenCards(this.card)
         this.card.style.width = `${this.minWidth}%`
-        this.toggleNoneStyle([this.button,this.description,this.title])
+        Ui.toggleNoneStyle([this.button,this.description,this.title])
        
     }
     
@@ -65,13 +65,5 @@ export class Card extends Ui{
         else this.state["opened"] = false 
     }  
 
-    private toggleNoneStyle(elements:HTMLElement|HTMLElement[]){
-        if(elements instanceof HTMLElement){
-            elements.classList.toggle("none")
-        }else if(Array.isArray(elements)){
-            elements.forEach((element)=>{
-                element.classList.toggle("none")
-            })
-        }
-    }
+   
 }

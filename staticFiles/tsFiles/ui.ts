@@ -9,7 +9,7 @@ type Style = {
 
 export class Ui{
     protected static addHiddenCards(card:HTMLElement){
-        addStyles(card,stylesForOpenCard)
+        this.addStyles(card,stylesForOpenCard)
 
         cards.forEach(cardObject=>{
             if(cardObject.card.id!=card.id){
@@ -19,7 +19,7 @@ export class Ui{
     }
 
     protected static removeHiddenCards(card:HTMLElement){
-        addStyles(card,stylesForCloseCard)
+        this.addStyles(card,stylesForCloseCard)
 
         cards.forEach((element)=>{
             if(element.card.id!=card.id){
@@ -36,6 +36,26 @@ export class Ui{
             }
         })
     }
+
+    protected static toggleNoneStyle(elements:HTMLElement|HTMLElement[]){
+        if(elements instanceof HTMLElement){
+            elements.classList.toggle("none")
+        }else if(Array.isArray(elements)){
+            elements.forEach((element)=>{
+                element.classList.toggle("none")
+            })
+        }
+    }
+
+    protected static addStyles(card:HTMLElement, styles:Style){
+        for (const iterator in styles) {
+            if(iterator.includes("animation")){
+                card.style.animation = styles[iterator]
+            }else if(iterator.includes("position")){
+                card.style.position = styles[iterator]
+            }
+        }
+    }
 }
 
 const stylesForOpenCard:Style = {
@@ -48,12 +68,3 @@ const stylesForCloseCard:Style = {
     animation : "closeCard 1s forwards"
 }
 
-function addStyles(card:HTMLElement, styles:Style){
-    for (const iterator in styles) {
-        if(iterator.includes("animation")){
-            card.style.animation = styles[iterator]
-        }else if(iterator.includes("position")){
-            card.style.position = styles[iterator]
-        }
-    }
-}

@@ -42,12 +42,13 @@
     text-align: center;
     margin-top: 6%;
     letter-spacing: 4px;
+    
 }
 
 .card:hover{
     box-shadow: 0 0 2rem 2px rgba(7, 7, 7, 0.2);
     margin-top:5px;
-    
+    text-shadow:#000 1px 10px 5px ;
 }
 
 .none{
