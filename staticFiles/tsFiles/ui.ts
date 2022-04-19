@@ -8,8 +8,18 @@ type Style = {
 }
 
 export class Ui{
+    static stylesForOpenCard:Style = {
+        position : "absolute",
+        animation : "openCard 1s forwards"
+    }
+
+    static stylesForCloseCard:Style = {
+        position : "static",
+        animation : "closeCard 1s forwards"
+    }
+
     protected static addHiddenCards(card:HTMLElement){
-        this.addStyles(card,stylesForOpenCard)
+        this.addStyles(card,this.stylesForOpenCard)
 
         cards.forEach(cardObject=>{
             if(cardObject.card.id!=card.id){
@@ -19,7 +29,7 @@ export class Ui{
     }
 
     protected static removeHiddenCards(card:HTMLElement){
-        this.addStyles(card,stylesForCloseCard)
+        this.addStyles(card,this.stylesForCloseCard)
 
         cards.forEach((element)=>{
             if(element.card.id!=card.id){
@@ -58,13 +68,7 @@ export class Ui{
     }
 }
 
-const stylesForOpenCard:Style = {
-    position : "absolute",
-    animation : "openCard 1s forwards"
-}
 
-const stylesForCloseCard:Style = {
-    position : "static",
-    animation : "closeCard 1s forwards"
-}
+
+ 
 

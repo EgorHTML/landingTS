@@ -37,8 +37,8 @@ export class Card extends Ui{
         if(this.state["opened"]===true){
             NavSection.closeAboutProject()
             this.currentSize = this.minWidth
-            this.setupState()
             this.generateUiForCloseCard()
+            this.setupState()
           }
     }
 
@@ -48,22 +48,16 @@ export class Card extends Ui{
 
     private generateUiForOpenCard(){
         Ui.addHiddenCards(this.card)
-        this.card.style.width = `${this.maxWidth}%`
         Ui.toggleNoneStyle([this.button,this.description,this.title])
-     
     }
 
     private generateUiForCloseCard(){
         Ui.removeHiddenCards(this.card)
-        this.card.style.width = `${this.minWidth}%`
         Ui.toggleNoneStyle([this.button,this.description,this.title])
-       
     }
     
     private setupState(){
         if(this.currentSize===this.maxWidth) this.state["opened"] = true
         else this.state["opened"] = false 
     }  
-
-   
 }

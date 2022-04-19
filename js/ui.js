@@ -1,7 +1,7 @@
 import { cards } from "./app.js";
 export class Ui {
     static addHiddenCards(card) {
-        addStyles(card, stylesForOpenCard);
+        this.addStyles(card, this.stylesForOpenCard);
         cards.forEach(cardObject => {
             if (cardObject.card.id != card.id) {
                 cardObject.card.classList.add("noneCard");
@@ -9,7 +9,7 @@ export class Ui {
         });
     }
     static removeHiddenCards(card) {
-        addStyles(card, stylesForCloseCard);
+        this.addStyles(card, this.stylesForCloseCard);
         cards.forEach((element) => {
             if (element.card.id != card.id) {
                 element.card.classList.remove("noneCard");
@@ -23,23 +23,33 @@ export class Ui {
             }
         });
     }
-}
-const stylesForOpenCard = {
-    position: "absolute",
-    animation: "openCard 1s forwards"
-};
-const stylesForCloseCard = {
-    position: "static",
-    animation: "closeCard 1s forwards"
-};
-function addStyles(card, styles) {
-    for (const iterator in styles) {
-        if (iterator.includes("animation")) {
-            card.style.animation = styles[iterator];
+    static toggleNoneStyle(elements) {
+        if (elements instanceof HTMLElement) {
+            elements.classList.toggle("none");
         }
-        else if (iterator.includes("position")) {
-            card.style.position = styles[iterator];
+        else if (Array.isArray(elements)) {
+            elements.forEach((element) => {
+                element.classList.toggle("none");
+            });
+        }
+    }
+    static addStyles(card, styles) {
+        for (const iterator in styles) {
+            if (iterator.includes("animation")) {
+                card.style.animation = styles[iterator];
+            }
+            else if (iterator.includes("position")) {
+                card.style.position = styles[iterator];
+            }
         }
     }
 }
+Ui.stylesForOpenCard = {
+    position: "absolute",
+    animation: "openCard 1s forwards"
+};
+Ui.stylesForCloseCard = {
+    position: "static",
+    animation: "closeCard 1s forwards"
+};
 //# sourceMappingURL=ui.js.map

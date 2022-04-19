@@ -20,7 +20,7 @@ for(let i = 0;i<nodeCards.length;i++){
     closeButtons[i].addEventListener("click",(event)=>clickOnCloseButton(event,cards[i]))
 }
 
-const project = document.querySelector("li")
+const project = document.querySelector("[data-nav=Project]")
 
 project.addEventListener("click",()=>{
     NavSection.getBackHome()
@@ -38,10 +38,8 @@ function clickOnCloseButton(event:Event,card: Card){
     card.closeCard()
 }
 
-const home = document.querySelectorAll("li")[1]
-
+const home = document.querySelector("[data-nav=Home]")
 home.addEventListener("click",()=>NavSection.getBackHome())
 
-const installSection = document.querySelectorAll("li")[2]
-
+const installSection = document.querySelector("[data-nav=install]")
 installSection.addEventListener("click",NavSection.openInstallCard)

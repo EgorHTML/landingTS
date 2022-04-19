@@ -4,6 +4,7 @@
       width: 35%;
       height: 190px;
     }to{
+      overflow: auto;
       cursor:default;
       width: 80%;
       height: 70%;

@@ -4,7 +4,6 @@ import { Ui } from "./ui.js"
 export class NavSection extends Ui{
     static openAboutProject(){
         cards[4].card.classList.remove("NavSectionNone")
-        
     }
 
     static closeAboutProject(){
