@@ -25,19 +25,19 @@
 
   @keyframes color-change-4x {
     0% {
-      background: #daf2f2;
+      background: #bff4f4;
     }
     25%{
-      background: #f7cdc7;
+      background: #f7c2b9;
     }
     50%{
-      background: #d0f6d0;
+      background: #bdf2bd;
     }
     75%{
-      background: #f7cdc7;
+      background: #f7c2b9;
     }
     100% {
-      background: #daf2f2;
+      background: #bff4f4;
     }
   }
 

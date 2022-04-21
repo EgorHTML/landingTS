@@ -31,6 +31,13 @@ const server = http.createServer((req,res)=>{
             res.writeHead(200,{"application":"octet-stream"})
             res.end(data)
         })
+    }else if(path.extname(req.url)===".png"){
+        fs.readFile(`./staticFiles/${req.url}`,(err,data)=>{
+            if(err)console.log(err.message);
+            res.writeHead(200,{"image":"png"})
+            res.end(data)
+        })
+        
     }
 })
 const PORT = 8080

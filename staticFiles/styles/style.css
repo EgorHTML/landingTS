@@ -122,6 +122,11 @@
 }
 
 .logo{
+    height: 120px;
+    width: 120px;
+    display: block;
+    background-image: url("../venus\(1\).png");
+    background-size: cover;
     font-family: userFont;
     font-size: 40px;
     position: fixed;
