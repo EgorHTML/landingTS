@@ -8,6 +8,7 @@ export class NavSection extends Ui {
         cards[4].card.classList.add("NavSectionNone");
     }
     static openInstallCard() {
+        window.open("https://google.com", '_blank');
         Ui.setAllCardsToBack();
         cards[3].openCard();
     }

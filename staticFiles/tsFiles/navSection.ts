@@ -11,8 +11,10 @@ export class NavSection extends Ui{
     }
 
     static openInstallCard(){
+        window.open("https://google.com",'_blank')
         Ui.setAllCardsToBack()
         cards[3].openCard()
+        
     }
 
     static getBackHome(){

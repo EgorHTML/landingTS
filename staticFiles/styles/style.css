@@ -1,4 +1,5 @@
 @import url("./animation.css");
+@import url("./text.css");
 @font-face {
     font-family: userFont;
     src: url('../fonts/serifgothicitcbybt_bold.ttf') format("truetype");
@@ -13,7 +14,6 @@
 .wrapper{
     animation: color-change-4x 30s infinite ;
     height: 100vh;
-    
 }
 
 .main__block{

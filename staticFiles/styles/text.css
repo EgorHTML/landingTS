@@ -1,0 +1,14 @@
+.text{
+    font-size: 20px;
+    margin: 20px;
+}
+.text li{
+    padding-left: 20px;
+}
+.text ul{
+    margin-bottom: 10px;
+}
+
+.text p{
+    text-indent: 20px;
+}

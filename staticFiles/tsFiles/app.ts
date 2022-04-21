@@ -43,3 +43,5 @@ home.addEventListener("click",()=>NavSection.getBackHome())
 
 const installSection = document.querySelector("[data-nav=install]")
 installSection.addEventListener("click",NavSection.openInstallCard)
+
+
