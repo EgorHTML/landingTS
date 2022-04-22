@@ -2,6 +2,7 @@ import { cards } from "./app.js";
 export class Ui {
     static addHiddenCards(card) {
         this.addStyles(card, this.stylesForOpenCard);
+        this.addStyles(card.querySelector(".text"), this.textAdd);
         cards.forEach(cardObject => {
             if (cardObject.card.id != card.id) {
                 cardObject.card.classList.add("noneCard");
@@ -41,9 +42,15 @@ export class Ui {
             else if (iterator.includes("position")) {
                 card.style.position = styles[iterator];
             }
+            else if (iterator.includes("Delay")) {
+                card.style.animationDelay = styles[iterator];
+            }
         }
     }
 }
+Ui.textAdd = {
+    animation: "fromZeroOpacityToFull 2.5s forwards",
+};
 Ui.stylesForOpenCard = {
     position: "absolute",
     animation: "openCard 1s forwards"

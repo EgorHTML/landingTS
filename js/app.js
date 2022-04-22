@@ -20,9 +20,10 @@ project.addEventListener("click", () => {
     clickOnCard(cards[4]);
 });
 function clickOnCard(card) {
-    if (card.card.id === "4")
+    const id = card.card.id;
+    if (id === "4")
         NavSection.openAboutProject();
-    card.openCard();
+    card.openCard(id);
 }
 function clickOnCloseButton(event, card) {
     if (card.card.id === "4")

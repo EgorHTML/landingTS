@@ -25,11 +25,15 @@ export class Card extends Ui{
         this.title = this.card.querySelector("h2")
     }
     
-    public openCard(){
+    public openCard(id?:string){
       if(this.state["opened"]===false){
-        this.currentSize = this.maxWidth
-        this.generateUiForOpenCard()
-        this.setupState()
+        if(id==="3"){
+            window.open("https://google.com","_blank")
+        }else{
+            this.currentSize = this.maxWidth
+            this.generateUiForOpenCard()
+            this.setupState()
+        }
       }
     }
 

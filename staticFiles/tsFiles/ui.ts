@@ -4,10 +4,16 @@ type Style = {
     position?:string
     animation?:string
     animationDuration?:string
-    animationFillMode?:string
+    animationFillMode?:string,
+    animationDelay?:string
 }
 
 export class Ui{
+    static textAdd:Style = {
+        animation:"fromZeroOpacityToFull 2.5s forwards",
+    }
+    
+    
     static stylesForOpenCard:Style = {
         position : "absolute",
         animation : "openCard 1s forwards"
@@ -16,10 +22,12 @@ export class Ui{
     static stylesForCloseCard:Style = {
         position : "static",
         animation : "closeCard 1s forwards"
+        
     }
 
     protected static addHiddenCards(card:HTMLElement){
         this.addStyles(card,this.stylesForOpenCard)
+        this.addStyles(card.querySelector(".text"),this.textAdd)
 
         cards.forEach(cardObject=>{
             if(cardObject.card.id!=card.id){
@@ -63,6 +71,8 @@ export class Ui{
                 card.style.animation = styles[iterator]
             }else if(iterator.includes("position")){
                 card.style.position = styles[iterator]
+            }else if(iterator.includes("Delay")){
+                card.style.animationDelay = styles[iterator]
             }
         }
     }

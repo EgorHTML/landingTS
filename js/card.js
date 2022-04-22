@@ -12,11 +12,16 @@ export class Card extends Ui {
         this.description = this.card.querySelector(".description");
         this.title = this.card.querySelector("h2");
     }
-    openCard() {
+    openCard(id) {
         if (this.state["opened"] === false) {
-            this.currentSize = this.maxWidth;
-            this.generateUiForOpenCard();
-            this.setupState();
+            if (id === "3") {
+                window.open("https://google.com", "_blank");
+            }
+            else {
+                this.currentSize = this.maxWidth;
+                this.generateUiForOpenCard();
+                this.setupState();
+            }
         }
     }
     closeCard() {
