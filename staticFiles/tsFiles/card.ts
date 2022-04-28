@@ -13,10 +13,6 @@ export class Card extends Ui{
 
     private state:StateCard = {opened:false}
 
-    private readonly minWidth:number = 35
-    private readonly maxWidth:number = 90
-    private currentSize = this.minWidth
-    
     constructor(card:HTMLElement){
         super()
         this.card = card
@@ -30,7 +26,6 @@ export class Card extends Ui{
         if(id==="3"){
             window.open("https://google.com","_blank")
         }else{
-            this.currentSize = this.maxWidth
             this.generateUiForOpenCard()
             this.setupState()
         }
@@ -40,13 +35,12 @@ export class Card extends Ui{
     public closeCard(){
         if(this.state["opened"]===true){
             NavSection.closeAboutProject()
-            this.currentSize = this.minWidth
             this.generateUiForCloseCard()
             this.setupState()
           }
     }
 
-    public getState():StateCard{
+    get getState():StateCard{
         return this.state
     }
 
@@ -61,7 +55,6 @@ export class Card extends Ui{
     }
     
     private setupState(){
-        if(this.currentSize===this.maxWidth) this.state["opened"] = true
-        else this.state["opened"] = false 
+        this.state["opened"] = !this.state["opened"]
     }  
 }

@@ -19,7 +19,7 @@ export class Ui {
     }
     static setAllCardsToBack() {
         cards.forEach((card) => {
-            if (card.getState().opened === true) {
+            if (card.getState.opened === true) {
                 card.closeCard();
             }
         });

@@ -4,9 +4,6 @@ export class Card extends Ui {
     constructor(card) {
         super();
         this.state = { opened: false };
-        this.minWidth = 35;
-        this.maxWidth = 90;
-        this.currentSize = this.minWidth;
         this.card = card;
         this.button = this.card.querySelector(".close");
         this.description = this.card.querySelector(".description");
@@ -18,7 +15,6 @@ export class Card extends Ui {
                 window.open("https://google.com", "_blank");
             }
             else {
-                this.currentSize = this.maxWidth;
                 this.generateUiForOpenCard();
                 this.setupState();
             }
@@ -27,12 +23,11 @@ export class Card extends Ui {
     closeCard() {
         if (this.state["opened"] === true) {
             NavSection.closeAboutProject();
-            this.currentSize = this.minWidth;
             this.generateUiForCloseCard();
             this.setupState();
         }
     }
-    getState() {
+    get getState() {
         return this.state;
     }
     generateUiForOpenCard() {
@@ -44,10 +39,7 @@ export class Card extends Ui {
         Ui.toggleNoneStyle([this.button, this.description, this.title]);
     }
     setupState() {
-        if (this.currentSize === this.maxWidth)
-            this.state["opened"] = true;
-        else
-            this.state["opened"] = false;
+        this.state["opened"] = !this.state["opened"];
     }
 }
 //# sourceMappingURL=card.js.map
